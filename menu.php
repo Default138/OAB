@@ -192,25 +192,3 @@ do {
             echo "Tem essa opção não mano!\n";
     }
 } while ($opcao != 0);
-
-
-
-
-
-
-
-
-
-/* 
-Com IF e Else seria
-
-If (bla bla bla bla)
-
-welse if(bla bla bla bla bla)
-
-welse if(bla bla bla bla bla)
-
-welse if(bla bla bla bla bla)
-
-welse
-*/
