@@ -8,9 +8,9 @@ class Receita
     private $valor;
 
     //Metodos
-    public function __toString()
+public function __toString()
     {
-        $retorno = "Descrição: " . $this->descricao . " | Valor: R$ " . number_format($this->valor, 2, ',', '.') . "\n";
+        $retorno = "Descrição: " . $this->descricao . " | Valor: R$ " . $this->valor . "\n";
         return $retorno;
     }
 
@@ -59,9 +59,9 @@ class Despesa
     private $valor;
 
     //Metodos
-    public function __toString()
+public function __toString()
     {
-        $retorno = "Descrição: " . $this->descricao . " | Valor: R$ " . number_format($this->valor, 2, ',', '.') . "\n";
+        $retorno = "Descrição: " . $this->descricao . " | Valor: R$ " . $this->valor . "\n";
         return $retorno;
     }
 
@@ -154,7 +154,7 @@ do {
 
         case 4: //Listar Despesa
             if (count($despesas) > 0) {
-                echo "\nÉ isso que voce tá devendo:\n";
+                echo "\nEssas são suas despesas:\n";
                 foreach ($despesas as $d)
                     echo $d;
             } else
@@ -174,9 +174,9 @@ do {
 
             $saldo = $totalReceitas - $totalDespesas;
 
-            echo "\nTotal de receitas: R$ " . number_format($totalReceitas, 2, ',', '.') . "\n";
-            echo "Total de despesas: R$ " . number_format($totalDespesas, 2, ',', '.') . "\n";
-            echo "Saldo final: R$ " . number_format($saldo, 2, ',', '.') . "\n";
+            echo "\nTotal de receitas: R$ " . $totalReceitas . "\n";
+            echo "Total de despesas: R$ " . $totalDespesas . "\n";
+            echo "Saldo final: R$ " . $saldo . "\n";
             break;
 
         default:
