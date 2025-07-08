@@ -10,10 +10,7 @@ class Receita
     //Metodos
     public function __toString()
     {
-        $retorno =
-        $this->descricao;
-        $this->valor;
-        return $retorno;
+        return "Descrição: {$this->descricao} | Valor: R$ " . number_format($this->valor, 2, ',', '.') . "\n";
     }
 
     /**
@@ -63,10 +60,7 @@ class Despesa
     //Metodos
     public function __toString()
     {
-        $retorno =
-        $this->descricao;
-        $this->valor;
-        return $retorno;
+        return "Descrição: {$this->descricao} | Valor: R$ " . number_format($this->valor, 2, ',', '.') . "\n";
     }
 
     /**
@@ -141,12 +135,12 @@ do {
             echo "\n";
             $despesa = new Despesa();
             $despesa->setValor(readline("Informe a Despesa: "));
-            array_push($despesas, $despesas);
+            array_push($despesas, $despesa);
             break;
 
         case 3: //Listar Receitas
             if (count($receitas) > 0) {
-                echo "\nEssas são suas recitas:\n";
+                echo "\nEssas são suas receitas:\n";
                 foreach ($receitas as $r)
                     echo $r;
             } else
@@ -179,16 +173,17 @@ do {
             $saldo = $totalReceitas - $totalDespesas;
 
             //Exibir Saldo
-            /*
+            
             echo "Saldo: R$: " . number_format($saldo,',', '.') . "\n";
             echo "Total de receitas: R$: " . number_format($totalReceitas, ',', '.') . "\n";
             echo "Total de despesas: R$: " . number_format($totalDespesas, ',', '.') . "\n";
 
             break;
-            */
+            
 
 
         default:
             echo "Tem essa opção não mano!\n";
     }
 } while ($opcao != 0);
+
