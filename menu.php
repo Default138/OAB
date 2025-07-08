@@ -10,7 +10,10 @@ class Receita
     //Metodos
     public function __toString()
     {
-        return "Descrição: {$this->descricao} | Valor: R$ " . number_format($this->valor, 2, ',', '.') . "\n";
+        $retorno =
+        $this-> descricao;
+        $this-> valor;
+        return $retorno;
     }
 
     /**
@@ -60,7 +63,10 @@ class Despesa
     //Metodos
     public function __toString()
     {
-        return "Descrição: {$this->descricao} | Valor: R$ " . number_format($this->valor, 2, ',', '.') . "\n";
+        $retorno =
+        $this-> descricao;
+        $this-> valor;
+        return $retorno;
     }
 
     /**
@@ -159,31 +165,8 @@ do {
             break;
 
         case 5: // Sumarizar
-            $totalReceitas = 0;
-            $totalDespesas = 0;
-            // Calcular total de receitas
-            foreach ($receitas as $r) {
-                $totalReceitas += $r->getValor();
-            }
-            // Calcular total de despesas
-            foreach ($despesas as $d) {
-                $totalDespesas += $d->getValor();
-            }
-            // Calcular saldo
-            $saldo = $totalReceitas - $totalDespesas;
-
-            //Exibir Saldo
-            
-            echo "Saldo: R$: " . number_format($saldo,',', '.') . "\n";
-            echo "Total de receitas: R$: " . number_format($totalReceitas, ',', '.') . "\n";
-            echo "Total de despesas: R$: " . number_format($totalDespesas, ',', '.') . "\n";
-
-            break;
-            
-
 
         default:
             echo "Tem essa opção não mano!\n";
     }
 } while ($opcao != 0);
-
