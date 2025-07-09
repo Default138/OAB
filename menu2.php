@@ -8,7 +8,7 @@ class Receita
     private $valor;
 
     //Metodos
-public function __toString()
+public function __toString() //Consertei os __toString
     {
         $retorno = "Descrição: " . $this->descricao . " | Valor: R$ " . $this->valor . "\n";
         return $retorno;
@@ -59,7 +59,7 @@ class Despesa
     private $valor;
 
     //Metodos
-public function __toString()
+public function __toString() //Consertei esse também
     {
         $retorno = "Descrição: " . $this->descricao . " | Valor: R$ " . $this->valor . "\n";
         return $retorno;
@@ -130,14 +130,14 @@ do {
             echo "\n";
             $receita = new Receita();
             $receita->setDescricao(readline("Informe a Receita: "));
-            $receita->setValor((float) readline("Informe o valor da Receita: "));
+            $receita->setValor((float) readline("Informe o valor da Receita: ")); //Tinha esquecido de seta o valor
             array_push($receitas, $receita);
             break;
 
         case 2: //Add Despesa
             echo "\n";
             $despesa = new Despesa();
-            $despesa->setDescricao(readline("Informe a Despesa: "));
+            $despesa->setDescricao(readline("Informe a Despesa: ")); //Tinha esquecido a descrição
             $despesa->setValor((float) readline("Informe o valor da Despesa: "));
             array_push($despesas, $despesa);
             break;
