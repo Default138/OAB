@@ -164,7 +164,22 @@ do {
 
             break;
 
-        case 5: // Sumarizar
+          case 5: // Sumarizar
+            $totalReceitas = 0;
+            $totalDespesas = 0;
+
+            foreach ($receitas as $r)
+                $totalReceitas += $r->getValor();
+
+            foreach ($despesas as $d)
+                $totalDespesas += $d->getValor();
+
+            $saldo = $totalReceitas - $totalDespesas;
+
+            echo "\nTotal de receitas: R$ " . $totalReceitas . "\n";
+            echo "Total de despesas: R$ " . $totalDespesas . "\n";
+            echo "Saldo final: R$ " . $saldo . "\n";
+            break;
 
         default:
             echo "Tem essa opção não mano!\n";
