@@ -96,7 +96,7 @@ $baralho = array(
 
 //Sorteando uma carta aleatória para ser adivinhada
 $cartaSorteada = $baralho[array_rand($baralho)]; //array rand é literalmet array aleatorio
-$pontuacao = 100; // Pontuação inicial (reduz a cada erro)
+$pontuacao = 100; //Pontuação inicial (reduz a cada erro)
 $tentativas = 0;
 $acertou = false;
 
@@ -144,4 +144,5 @@ if ($acertou) {
 }
 
 echo "\nFim do jogo!\n";
+
 
