@@ -128,12 +128,11 @@ do {
 } while (!$acertou); 
 
 //Mostrando resultado final
-if ($acertou) {
     echo "\nPARABÉNS! Você acertou!\n";
     echo "Carta sorteada: " . $cartaSorteada . "\n";
     echo "Tentativas: $tentativas\n";
     echo "Pontuação final: $pontuacao\n";
-}
 
 echo "\nFim do jogo!\n";
+
 
