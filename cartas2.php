@@ -8,11 +8,20 @@ class Carta
     private string $nome;
     private string $dica;
 
+    //Metodo Construct
+    
     public function __construct(int $numero, string $nome, string $dica)
     {
         $this->numero = $numero;
         $this->nome = $nome;
         $this->dica = $dica;
+    }
+
+    //To string
+    
+    public function __toString(): string
+    {
+        return "Carta {$this->numero} - {$this->nome}";
     }
 
     //Get's e Set's
@@ -70,16 +79,11 @@ class Carta
 
         return $this;
     }
-
-    public function __toString(): string
-    {
-        return "Carta {$this->numero} - {$this->nome}";
-    }
 }
 
 //Programa Principal
 
-// Criando o baralho com 7 cartas (mínimo exigido)
+//Criando o baralho com 7 cartas
 $baralho = array(
     new Carta(1, "Ás de Copas", "É a carta mais baixa do baralho"),
     new Carta(2, "Dois de Ouros", "Representa o número dois"),
@@ -90,8 +94,8 @@ $baralho = array(
     new Carta(7, "Sete de Espadas", "A carta mais alta aqui")
 );
 
-// Sorteando uma carta aleatória para ser adivinhada
-$cartaSorteada = $baralho[array_rand($baralho)];
+//Sorteando uma carta aleatória para ser adivinhada
+$cartaSorteada = $baralho[array_rand($baralho)]; //array rand é literalmet array aleatorio
 $pontuacao = 100; // Pontuação inicial (reduz a cada erro)
 $tentativas = 0;
 $acertou = false;
@@ -99,29 +103,29 @@ $acertou = false;
 echo "=== JOGO DE ADIVINHAÇÃO DE CARTAS ===\n";
 echo "Tente adivinhar qual carta foi sorteada!\n\n";
 
-// Mostrando dica da carta sorteada (funcionalidade que eu add)
+//Mostrando dica da carta sorteada (funcionalidade que eu add)
 echo "DICA: " . $cartaSorteada->getDica() . "\n\n";
 
 do {
-    // Mostrando todas as cartas disponíveis
+    //Mostrando todas as cartas disponíveis
     echo "Cartas no baralho:\n";
     foreach ($baralho as $carta) {
         echo $carta . "\n";
     }
 
-    // Recebendo palpite do usuário
+    //Recebendo palpite do usuário
     $palpite = (int) readline("\nDigite o NÚMERO da carta que você acha que foi sorteada: ");
     $tentativas++;
 
-    // Verificando se o palpite está correto
+    //Verificando se o palpite está correto
     if ($palpite == $cartaSorteada->getNumero()) {
         $acertou = true;
     } else {
-        $pontuacao -= 10; // Reduz a pontuação a cada erro
+        $pontuacao -= 10; //Reduz a pontuação a cada erro
         echo "\nErrou! Tente novamente.\n";
         echo "Pontuação atual: $pontuacao\n\n";
 
-        // Opção para desistir (achei legal colocar)
+        //Opção para desistir (achei legal colocar)
         $desistir = readline("Quer desistir? (Sim/Não): ");
         if (strtolower($desistir) == 'Sim') {
             break;
@@ -129,7 +133,7 @@ do {
     }
 } while (!$acertou);
 
-// Mostrando resultado final
+//Mostrando resultado final
 if ($acertou) {
     echo "\nPARABÉNS! Você acertou!\n";
     echo "Carta sorteada: " . $cartaSorteada . "\n";
@@ -140,3 +144,4 @@ if ($acertou) {
 }
 
 echo "\nFim do jogo!\n";
+
