@@ -124,14 +124,8 @@ do {
         $pontuacao -= 10; //Reduz a pontuação a cada erro
         echo "\nErrou! Tente novamente.\n";
         echo "Pontuação atual: $pontuacao\n\n";
-
-        //Opção para desistir (achei legal colocar)
-        $desistir = readline("Quer desistir? (Sim/Não): ");
-        if (strtolower($desistir) == 'Sim') {
-            break;
-        }
     }
-} while (!$acertou);
+} while (!$acertou); 
 
 //Mostrando resultado final
 if ($acertou) {
@@ -139,10 +133,7 @@ if ($acertou) {
     echo "Carta sorteada: " . $cartaSorteada . "\n";
     echo "Tentativas: $tentativas\n";
     echo "Pontuação final: $pontuacao\n";
-} else {
-    echo "\nVocê desistiu... A carta sorteada era: " . $cartaSorteada . "\n";
 }
 
 echo "\nFim do jogo!\n";
-
 
