@@ -4,13 +4,13 @@
 
 class Carta
 {
-    private int $numero;
-    private string $nome;
-    private string $dica;
+    private $numero;
+    private $nome;
+    private $dica;
 
     //Metodo Construct
     
-    public function __construct(int $numero, string $nome, string $dica)
+    public function __construct($numero, $nome, $dica)
     {
         $this->numero = $numero;
         $this->nome = $nome;
@@ -86,12 +86,12 @@ class Carta
 //Criando o baralho com 7 cartas
 $baralho = array(
     new Carta(1, "Ás de Copas", "É a carta mais baixa do baralho"),
-    new Carta(2, "Dois de Ouros", "Representa o número dois"),
-    new Carta(3, "Três de Espadas", "Tem o formato de um trevo"),
+    new Carta(2, "Dois de Espadas", "Um duelo de espadas"),
+    new Carta(3, "Três de Ouros", "OS trevos tem esse numero de folhas"),
     new Carta(4, "Quatro de Paus", "Número par e baixo"),
     new Carta(5, "Cinco de Copas", "Está no meio do baralho"),
-    new Carta(6, "Seis de Ouros", "Número antes do sete"),
-    new Carta(7, "Sete de Espadas", "A carta mais alta aqui")
+    new Carta(6, "Seis de Ouros", "Uma carta com bastante ouro"),
+    new Carta(7, "Sete de Espadas", "Dizem ser o número da sorte")
 );
 
 //Sortea a carta
@@ -114,7 +114,7 @@ do {
     }
 
     //Rece o chute
-    $palpite = (int) readline("\nDigite o NÚMERO da carta que você acha que foi sorteada: ");
+    $palpite = readline("\nDigite o NÚMERO da carta que você acha que foi sorteada: ");
     $tentativas++;
 
     //Ve se ta certo
