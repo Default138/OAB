@@ -94,7 +94,7 @@ $baralho = array(
     new Carta(7, "Sete de Espadas", "A carta mais alta aqui")
 );
 
-//Sorteando uma carta aleatória para ser adivinhada
+//Sortea a carta
 $cartaSorteada = $baralho[array_rand($baralho)]; //array rand é literalmet array aleatorio
 $pontuacao = 100; //Pontuação inicial (reduz a cada erro)
 $tentativas = 0;
@@ -103,36 +103,34 @@ $acertou = false;
 echo "=== JOGO DE ADIVINHAÇÃO DE CARTAS ===\n";
 echo "Tente adivinhar qual carta foi sorteada!\n\n";
 
-//Mostrando dica da carta sorteada (funcionalidade que eu add)
+//Mostra uma dica (funcionalidade que eu add)
 echo "DICA: " . $cartaSorteada->getDica() . "\n\n";
 
 do {
-    //Mostrando todas as cartas disponíveis
+    //Mostra a cartas
     echo "Cartas no baralho:\n";
     foreach ($baralho as $carta) {
         echo $carta . "\n";
     }
 
-    //Recebendo palpite do usuário
+    //Rece o chute
     $palpite = (int) readline("\nDigite o NÚMERO da carta que você acha que foi sorteada: ");
     $tentativas++;
 
-    //Verificando se o palpite está correto
+    //Ve se ta certo
     if ($palpite == $cartaSorteada->getNumero()) {
         $acertou = true;
     } else {
-        $pontuacao -= 10; //Reduz a pontuação a cada erro
+        $pontuacao -= 10; //Diminui a pontação
         echo "\nErrou! Tente novamente.\n";
         echo "Pontuação atual: $pontuacao\n\n";
     }
 } while (!$acertou); 
 
-//Mostrando resultado final
+//Mostra o resultado final
     echo "\nPARABÉNS! Você acertou!\n";
     echo "Carta sorteada: " . $cartaSorteada . "\n";
     echo "Tentativas: $tentativas\n";
     echo "Pontuação final: $pontuacao\n";
 
 echo "\nFim do jogo!\n";
-
-
