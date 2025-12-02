@@ -39,12 +39,12 @@ do {
             //pacote DAO = data access object
             $dao = new ClienteDao;
             $dao->inserir($cliente);
-            echo("Cliente inserido com sucesso.\n");
+            echo ("Cliente inserido com sucesso.\n");
 
             break;
 
         case 2:
-            
+
             $cliente = new clientePJ();
             $cliente->setNomeSocial(readline("Nome social: "));
             $cliente->setEmail(readline("Email:"));
@@ -55,7 +55,7 @@ do {
 
             $dao = new ClienteDao;
             $dao->inserir($cliente);
-            echo("Cliente inserido com sucesso.\n");
+            echo ("Cliente inserido com sucesso.\n");
 
             break;
 
@@ -63,9 +63,8 @@ do {
             echo "\nLista de clientes:\n";
             $dao = new ClienteDao;
             $clientes = $dao->listar();
-            
-            foreach($clientes as $c)
-            {
+
+            foreach ($clientes as $c) {
                 echo $c . "\n";
             }
 
@@ -74,9 +73,8 @@ do {
         case 4:
             $dao = new ClienteDao;
             $clientes = $dao->listar();
-            
-            foreach($clientes as $c)
-            {
+
+            foreach ($clientes as $c) {
                 echo $c->getId() . " - " . $c->getNomeSocial() . "\n";
             }
 
@@ -84,11 +82,26 @@ do {
 
             $cliente = $dao->buscarPorId($id);
 
-            print("\n".$cliente."\n");
+            print("\n" . $cliente . "\n");
             break;
 
         case 5:
-            echo "Não implementado!\n";
+            //TODO Implemenar o excluir
+            $dao = new ClienteDao;
+            $clientes = $dao->listar();
+
+            foreach ($clientes as $c) {
+                echo $c->getId() . " - " . $c->getNomeSocial() . "\n";
+            }
+
+            $id = readline("Informe o Id: ");
+
+            $cliente = $dao->buscarPorId($id);
+
+            print("\n" . $cliente . "\n");
+
+            //fazer aqui
+
             break;
 
         case 0:
@@ -98,4 +111,4 @@ do {
         default:
             echo "Opção inválida!";
     }
-} while($opcao != 0);
+} while ($opcao != 0);
